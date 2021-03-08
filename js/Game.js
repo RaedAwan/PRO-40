@@ -42,7 +42,11 @@ class Game {
     form.hide();
     
     Player.getPlayerInfo();
-    
+    image(back_img, 0, 0, 1000, 800); 
+    var x =100; 
+    var y=200; 
+    var index =0; 
+    drawSprites();
      for(var plr in allPlayers){
        index = index + 1;
        x = 500 - allPlayers[plr].distance;
@@ -53,7 +57,9 @@ class Game {
 
 
 
-     
+       text("Player 1 :" +allPlayers.player1.score,50,50); 
+       text("Player 2 :" + allPlayers.player2.score, 50, 100);
+
         if(index === player.index){
           fill("black");
           textSize(25);
@@ -91,31 +97,16 @@ class Game {
       }
       fruitGroup.add(fruits);
     }
-    if (player.index !== null) {
-      //fill code here, to destroy the objects.
-     for(var i =0; i<fruitGroup.length; i++){
-
-         var fruit = fruitGroup.get(i);
-
-         if(fruit.isTouching(player1)){
-             fruit.destroy();
-             player.score = ++score1;
-             player.update();
+    
+    }
+    
+         
          }
+     
+ 
 
-         if(fruit.isTouching(player2)){
-             fruit.destroy();
-             player.score = ++score2;
-             player.update();
-         }
-     }
- }
-}
 
-  end(){
-   
   
-    console.log("GAME ENDED");
   
-  }
-}
+  
+
